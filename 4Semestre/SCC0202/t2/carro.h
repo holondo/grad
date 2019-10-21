@@ -6,8 +6,8 @@
         float desc;
 	} carro;
 
-    carro check_in(int placa, int hor_cheg, int hor_said);
-    //check_out(carro car);
+    carro check_in();
+    void check_out(carro* p_car);
     int disp(carro car);
     int rejeita(carro car);
     void registrar_carro();
