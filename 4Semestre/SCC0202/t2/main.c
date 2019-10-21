@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include "carro.h"
+#include "patio1.h"
 
 int main() {
    int opcao;
@@ -8,6 +10,8 @@ int main() {
    switch (opcao) {
    case 1:
     printf("1 \n");
+    carro car = check_in();
+    check_out();
     //registrar_carro();
        break;
    case 2:
