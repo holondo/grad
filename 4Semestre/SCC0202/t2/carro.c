@@ -4,7 +4,7 @@
 carro check_in() {
     carro x;
     scanf("%d %d %d", x.placa, x.hor_cheg, x.hor_said);
-    return(x)
+    return(x);
 }
 int disp(carro car) {
 
