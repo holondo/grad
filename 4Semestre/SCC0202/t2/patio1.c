@@ -21,13 +21,18 @@ int p1_estaVazio(p1 *p) {
 
 int p1_inserir(p1 *p, elem* x) { //elem x deve ser uma variável dinâmica
     if (p1_estaCheio(p))
-        return 0; //erro pilha vazia
+        return 0; //erro pilha cheia
     elem *aux = p->topo;
     p->topo = x;
     x->prox = aux;
+    return 1; //sucesso
 }
 
 
 int p1_remover(p1 *p, elem *x) {
-    
+    if (p1_estaVazio(p))
+        return 0; //erro pilha vazia
+    x = p->topo; //Copia o topo para retornar o valor por argumento da função
+    p->topo = p->topo->prox; 
+    return 1; //sucesso
 }
