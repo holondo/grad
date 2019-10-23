@@ -6,7 +6,7 @@
         float desc;
 	} carro;
 
-    carro check_in();
+    carro check_in(int bp[5]);
     void check_out(carro* p_car);
     int disp(carro car);
     int rejeita(carro car);
