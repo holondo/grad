@@ -7,7 +7,7 @@ void p1_criar(p1 *p) {
 
 int p1_estaCheio(p1 *p) {
     int cont = 0;
-    elem *aux = p->topo;
+    vagaP1 *aux = p->topo;
     while (aux != NULL) {
         cont++;
         aux = aux->prox;
@@ -19,20 +19,24 @@ int p1_estaVazio(p1 *p) {
     return(p->topo == NULL ? 1 : 0);
 }
 
-int p1_inserir(p1 *p, elem* x) { //elem x deve ser uma variável dinâmica
+int p1_inserir(p1 *p, carro x) { //vagaP1 x deve ser uma variável dinâmica
     if (p1_estaCheio(p))
         return 0; //erro pilha cheia
-    elem *aux = p->topo;
-    p->topo = x;
-    x->prox = aux;
+    vagaP1 *aux = malloc(sizeof(vagaP1));
+    aux->atual = x;
+    aux->prox = p->topo;
+    p->topo = aux;    
     return 1; //sucesso
 }
 
 
-int p1_remover(p1 *p, elem *x) {
+int p1_remover(p1 *p) {
     if (p1_estaVazio(p))
         return 0; //erro pilha vazia
-    x = p->topo; //Copia o topo para retornar o valor por argumento da função
-    p->topo = p->topo->prox; 
+
+    vagaP1 *aux = p->topo;
+    p->topo = p->topo->prox;
+
+    free(aux);
     return 1; //sucesso
 }
